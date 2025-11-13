@@ -1,0 +1,38 @@
+nextflow_process {
+
+    name "Test Process MOLKARTQC"
+    script "../main.nf"
+    process "MOLKARTQC"
+
+    tag "modules"
+    tag "modules_local"
+    tag "molkartqc"
+
+    test("molkartqc - stub") {
+
+        options "-stub"
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test' ],
+                    file(params.modules_testdata_base_path + 'generic/csv/test.csv', checkIfExists: true),
+                    file(params.modules_testdata_base_path + 'generic/csv/test2.csv', checkIfExists: true),
+                    'cellpose',
+                    file(params.modules_testdata_base_path + 'generic/csv/test3.csv', checkIfExists: true)
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}

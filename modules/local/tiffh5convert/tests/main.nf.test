@@ -1,0 +1,36 @@
+nextflow_process {
+
+    name "Test Process TIFFH5CONVERT"
+    script "../main.nf"
+    process "TIFFH5CONVERT"
+
+    tag "modules"
+    tag "modules_local"
+    tag "tiffh5convert"
+
+    test("tiffh5convert - stub") {
+
+        options "-stub"
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test' ],
+                    file(params.modules_testdata_base_path + 'imaging/segmentation/cycif_tonsil_registered.ome.tif', checkIfExists: true),
+                    2
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}

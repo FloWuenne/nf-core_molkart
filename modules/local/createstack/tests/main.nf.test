@@ -1,0 +1,35 @@
+nextflow_process {
+
+    name "Test Process CREATE_STACK"
+    script "../main.nf"
+    process "CREATE_STACK"
+
+    tag "modules"
+    tag "modules_local"
+    tag "createstack"
+
+    test("createstack - stub") {
+
+        options "-stub"
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test' ],
+                    file(params.modules_testdata_base_path + 'imaging/segmentation/cycif_tonsil_registered.ome.tif', checkIfExists: true)
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}

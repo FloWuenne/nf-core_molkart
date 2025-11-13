@@ -1,0 +1,32 @@
+nextflow_process {
+
+    name "Test Process MOLKARTQCPNG"
+    script "../main.nf"
+    process "MOLKARTQCPNG"
+
+    tag "modules"
+    tag "modules_local"
+    tag "molkartqcpng"
+
+    test("molkartqcpng - stub") {
+
+        options "-stub"
+
+        when {
+            process {
+                """
+                input[0] = file(params.modules_testdata_base_path + 'generic/images/test.png', checkIfExists: true)
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}
