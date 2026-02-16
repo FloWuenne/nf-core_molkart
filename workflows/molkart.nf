@@ -14,6 +14,7 @@ include { MOLKARTQC      } from '../modules/local/molkartqc/main'
 include { MOLKARTQCPNG   } from '../modules/local/molkartqcpng/main'
 include { SPOT2CELL      } from '../modules/local/spot2cell/main'
 include { TIFFH5CONVERT  } from '../modules/local/tiffh5convert/main'
+include { GRIDLINE_FORGE } from '../modules/local/gridline_forge/main'
 
 include { CELLPOSE                    } from '../modules/nf-core/cellpose/main'
 include { DEEPCELL_MESMER             } from '../modules/nf-core/deepcell/mesmer/main'
@@ -62,17 +63,25 @@ workflow MOLKART {
         }
 
     //
-    // MODULE: Run Mindagap_mindagap
+    // MODULE: Run grid-line filling (Mindagap or GridlineForge)
     //
-    mindagap_in = membrane_tuple.mix(image_tuple) // mindagap input contains both membrane and nuclear images
-    MINDAGAP_MINDAGAP(mindagap_in)
-    ch_versions = ch_versions.mix(MINDAGAP_MINDAGAP.out.versions)
+    gap_filler_in = membrane_tuple.mix(image_tuple) // gap filler input contains both membrane and nuclear images
+
+    if (params.gap_filler == 'gridline_forge') {
+        GRIDLINE_FORGE(gap_filler_in)
+        ch_versions = ch_versions.mix(GRIDLINE_FORGE.out.versions)
+        gap_filler_out = GRIDLINE_FORGE.out.tiff
+    } else {
+        MINDAGAP_MINDAGAP(gap_filler_in)
+        ch_versions = ch_versions.mix(MINDAGAP_MINDAGAP.out.versions)
+        gap_filler_out = MINDAGAP_MINDAGAP.out.tiff
+    }
 
     //
     // MODULE: Apply Contrast-limited adaptive histogram equalization (CLAHE)
     // CLAHE is either applied to all images, or none.
     //
-    clahe_in = params.skip_mindagap ? mindagap_in : MINDAGAP_MINDAGAP.out.tiff
+    clahe_in = params.skip_mindagap ? gap_filler_in : gap_filler_out
     CLAHE(clahe_in)
     ch_versions = ch_versions.mix(CLAHE.out.versions)
 

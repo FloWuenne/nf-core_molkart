@@ -128,14 +128,21 @@
         "image_preprocessing": {
             "title": "Image preprocessing",
             "type": "object",
-            "description": "Defines gridsize for Mindagap and should contrast adjustment be applied and how.",
+            "description": "Defines grid-line filling tool and parameters, and contrast adjustment options.",
             "default": "",
             "fa_icon": "fas fa-adjust",
             "properties": {
+                "gap_filler": {
+                    "type": "string",
+                    "default": "mindagap",
+                    "description": "Tool to use for filling grid lines between tiles. Options: mindagap, gridline_forge.",
+                    "enum": ["mindagap", "gridline_forge"],
+                    "fa_icon": "fas fa-th-large"
+                },
                 "skip_mindagap": {
                     "type": "boolean",
                     "fa_icon": "fas fa-th-large",
-                    "description": "Skip mindagap if your data does not contain gaps between tiles."
+                    "description": "Skip grid-line filling if your data does not contain gaps between tiles."
                 },
                 "mindagap_boxsize": {
                     "type": "integer",
@@ -190,6 +197,18 @@
                     "description": "Should Mindagap blur area around grid for smoother transitions between tiles with different exposures.",
                     "fa_icon": "fas fa-th-large",
                     "hidden": true
+                },
+                "gridline_forge_kernel_size": {
+                    "type": "integer",
+                    "default": 5,
+                    "description": "Gaussian kernel size for GridlineForge refinement (must be odd).",
+                    "fa_icon": "fab fa-dropbox"
+                },
+                "gridline_forge_refinement_rounds": {
+                    "type": "integer",
+                    "default": 5,
+                    "description": "Number of Gaussian refinement iterations for GridlineForge. Lower values are faster.",
+                    "fa_icon": "fas fa-circle-notch"
                 },
                 "clahe_pyramid_tile": {
                     "type": "integer",
