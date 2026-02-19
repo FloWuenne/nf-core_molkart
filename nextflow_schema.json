@@ -206,8 +206,8 @@
                 },
                 "gridline_forge_refinement_rounds": {
                     "type": "integer",
-                    "default": 5,
-                    "description": "Number of Gaussian refinement iterations for GridlineForge. Lower values are faster.",
+                    "default": 40,
+                    "description": "Number of Gaussian blur iterations for GridlineForge. Matches MindaGap loopnum by default. Lower values are faster.",
                     "fa_icon": "fas fa-circle-notch"
                 },
                 "clahe_pyramid_tile": {
