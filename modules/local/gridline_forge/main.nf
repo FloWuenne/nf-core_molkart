@@ -17,6 +17,8 @@ process GRIDLINE_FORGE {
     script:
     def args = task.ext.args ?: ''
     """
+    export RAYON_NUM_THREADS=${task.cpus}
+
     gridline-forge \\
         $panorama \\
         $args
