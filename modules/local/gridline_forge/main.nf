@@ -1,5 +1,5 @@
 process GRIDLINE_FORGE {
-    tag "$meta.id"
+    tag "${meta.id}"
     label 'process_low'
 
     container "ghcr.io/flowuenne/gridline-forge:main"
@@ -9,7 +9,7 @@ process GRIDLINE_FORGE {
 
     output:
     tuple val(meta), path("*_gridfilled.{tif,tiff}"), emit: tiff
-    path "versions.yml"                              , emit: versions
+    path "versions.yml", emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -19,9 +19,9 @@ process GRIDLINE_FORGE {
     """
     export RAYON_NUM_THREADS=${task.cpus}
 
-    gridline-forge \\
-        $panorama \\
-        $args
+    gridline-forge process \\
+        ${panorama} \\
+        ${args}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
