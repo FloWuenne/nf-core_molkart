@@ -90,7 +90,7 @@ if __name__ == "__main__":
         )
         spots = spots.iloc[:, :4] # drop any column if it exists beyond the first 4 columns (relevant for new MC data)
         spots.columns = ["x", "y", "z", "gene"]
-        # below code had to be added to account for the spots.txt inputs if mindagap is skipped
+        # below code had to be added to account for the spots.txt inputs if duplicate finding is skipped
         if (([val for val in spots.index.values] == [val for val in range(len(spots.index.values))]) == False):
             spots["gene"] = spots["z"]
             spots["z"] = spots["y"]

@@ -29,7 +29,7 @@
 
 Image preprocessing
 
-- Fill the grid pattern in provided images ([`Mindagap`](https://github.com/ViriatoII/MindaGap))
+- Fill the grid pattern in provided images ([`GridlineForge`](https://github.com/flowuenne/gridline-forge))
 - Optionally apply contrast-limited adaptive histogram equalization
 - If a second (membrane) image is present, combine images into a multichannel stack (if required for segmentation)
 
@@ -40,7 +40,7 @@ Cell segmentation
 
 Spot processing
 
-- Find duplicated spots near grid lines ([`Mindagap`](https://github.com/ViriatoII/MindaGap))
+- Find duplicated spots near grid lines ([`GridlineForge`](https://github.com/flowuenne/gridline-forge))
 - Assign spots to segmented cells
 
 Quality control

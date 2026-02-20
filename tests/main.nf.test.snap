@@ -21,11 +21,8 @@
                 "MASKFILTER": {
                     "molkart_maskfilter": "0.1.0"
                 },
-                "MINDAGAP_DUPLICATEFINDER": {
-                    "mindagap": "0.0.2"
-                },
-                "MINDAGAP_MINDAGAP": {
-                    "mindagap": "0.0.2"
+                "GRIDLINE_FORGE_DUPLICATEFINDER": {
+                    "gridline_forge": "0.0.0"
                 },
                 "MOLKARTQC": {
                     "molkartqc": "0.1.0"
@@ -44,10 +41,10 @@
                 "clahe",
                 "clahe/mem_only_membrane_gridfilled_clahe.tiff",
                 "clahe/mem_only_nuclear_gridfilled_clahe.tiff",
-                "mindagap",
-                "mindagap/mem_only_membrane_gridfilled.tiff",
-                "mindagap/mem_only_nuclear_gridfilled.tiff",
-                "mindagap/mem_only_spots_markedDups.txt",
+                "gridline_forge",
+                "gridline_forge/mem_only_membrane_gridfilled.tiff",
+                "gridline_forge/mem_only_nuclear_gridfilled.tiff",
+                "gridline_forge/mem_only_spots_markedDups.txt",
                 "molkartqc",
                 "molkartqc/mem_only.cellpose.spot_QC.csv",
                 "molkartqc/mem_only.mesmer.spot_QC.csv",
@@ -131,11 +128,8 @@
                 "MASKFILTER": {
                     "molkart_maskfilter": "0.1.0"
                 },
-                "MINDAGAP_DUPLICATEFINDER": {
-                    "mindagap": "0.0.2"
-                },
-                "MINDAGAP_MINDAGAP": {
-                    "mindagap": "0.0.2"
+                "GRIDLINE_FORGE_DUPLICATEFINDER": {
+                    "gridline_forge": "0.0.0"
                 },
                 "MOLKARTQC": {
                     "molkartqc": "0.1.0"
@@ -161,10 +155,10 @@
                 "clahe",
                 "clahe/mem_only_membrane_gridfilled_clahe.tiff",
                 "clahe/mem_only_nuclear_gridfilled_clahe.tiff",
-                "mindagap",
-                "mindagap/mem_only_membrane_gridfilled.tiff",
-                "mindagap/mem_only_nuclear_gridfilled.tiff",
-                "mindagap/mem_only_spots_markedDups.txt",
+                "gridline_forge",
+                "gridline_forge/mem_only_membrane_gridfilled.tiff",
+                "gridline_forge/mem_only_nuclear_gridfilled.tiff",
+                "gridline_forge/mem_only_spots_markedDups.txt",
                 "molkartqc",
                 "molkartqc/mem_only.csv",
                 "multiqc",
@@ -216,7 +210,7 @@
         },
         "timestamp": "2025-10-26T22:36:57.356349985"
     },
-    "Skip mindagap - skip clahe - extended spots - stardist": {
+    "Skip gridline filling - skip clahe - extended spots - stardist": {
         "content": [
             6,
             {
@@ -307,11 +301,8 @@
                 "MASKFILTER": {
                     "molkart_maskfilter": "0.1.0"
                 },
-                "MINDAGAP_DUPLICATEFINDER": {
-                    "mindagap": "0.0.2"
-                },
-                "MINDAGAP_MINDAGAP": {
-                    "mindagap": "0.0.2"
+                "GRIDLINE_FORGE_DUPLICATEFINDER": {
+                    "gridline_forge": "0.0.0"
                 },
                 "MOLKARTQC": {
                     "molkartqc": "0.1.0"
@@ -334,9 +325,9 @@
                 "anndata/nuc_only_cellpose.adata",
                 "anndata/nuc_only_mesmer.adata",
                 "anndata/nuc_only_stardist.adata",
-                "mindagap",
-                "mindagap/nuc_only_nuclear_gridfilled.tiff",
-                "mindagap/nuc_only_spots_markedDups.txt",
+                "gridline_forge",
+                "gridline_forge/nuc_only_nuclear_gridfilled.tiff",
+                "gridline_forge/nuc_only_spots_markedDups.txt",
                 "molkartqc",
                 "molkartqc/nuc_only.cellpose.spot_QC.csv",
                 "molkartqc/nuc_only.mesmer.spot_QC.csv",
@@ -405,7 +396,7 @@
         },
         "timestamp": "2025-10-26T22:34:16.345279697"
     },
-    "Skip mindagap - clahe - cellpose": {
+    "Skip gridline filling - clahe - cellpose": {
         "content": [
             9,
             {
@@ -501,9 +492,6 @@
                 "CROPTIFF": {
                     "molkart_croptiff": "0.1.0"
                 },
-                "MINDAGAP_MINDAGAP": {
-                    "mindagap": "0.0.2"
-                },
                 "MOLKARTQCPNG": {
                     "molkartqc": "0.1.0"
                 },
@@ -514,8 +502,8 @@
             [
                 "clahe",
                 "clahe/nuc_only_nuclear_gridfilled_clahe.tiff",
-                "mindagap",
-                "mindagap/nuc_only_nuclear_gridfilled.tiff",
+                "gridline_forge",
+                "gridline_forge/nuc_only_nuclear_gridfilled.tiff",
                 "molkartqc",
                 "molkartqc/crop_overview.png",
                 "multiqc",
@@ -567,9 +555,6 @@
                 "CROPTIFF": {
                     "molkart_croptiff": "0.1.0"
                 },
-                "MINDAGAP_MINDAGAP": {
-                    "mindagap": "0.0.2"
-                },
                 "MOLKARTQCPNG": {
                     "molkartqc": "0.1.0"
                 },
@@ -581,9 +566,9 @@
                 "clahe",
                 "clahe/mem_only_membrane_gridfilled_clahe.tiff",
                 "clahe/mem_only_nuclear_gridfilled_clahe.tiff",
-                "mindagap",
-                "mindagap/mem_only_membrane_gridfilled.tiff",
-                "mindagap/mem_only_nuclear_gridfilled.tiff",
+                "gridline_forge",
+                "gridline_forge/mem_only_membrane_gridfilled.tiff",
+                "gridline_forge/mem_only_nuclear_gridfilled.tiff",
                 "molkartqc",
                 "molkartqc/mem_only_stack.png",
                 "multiqc",

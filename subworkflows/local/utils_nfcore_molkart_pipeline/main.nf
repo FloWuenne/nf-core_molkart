@@ -200,7 +200,8 @@ def toolCitationText() {
     // Uncomment function in methodsDescriptionText to render in MultiQC report
     def citation_text = [
             "Tools used in the workflow included: ",
-            params.skip_mindagap ? "" : "Mindagap (Guerreiro et al. 2023),",
+            params.skip_gridline_filling ? "" : "gridline-forge,",
+            params.skip_duplicatefinder ? "" : "GridlineForge (Wuennemann 2025),",
             params.segmentation_method.split(',').contains('mesmer')   ? "Mesmer (Greenwald et al. 2021)," : "",
             params.segmentation_method.split(',').contains('ilastik')  ? "ilastik (Berg et al. 2019),"     : "",
             params.segmentation_method.split(',').contains('stardist')   ? "Stardist (Schmidt et al. 2018)," : "",
@@ -215,7 +216,8 @@ def toolBibliographyText() {
     // Can use ternary operators to dynamically construct based conditions, e.g. params["run_xyz"] ? "<li>Author (2023) Pub name, Journal, DOI</li>" : "",
     // Uncomment function in methodsDescriptionText to render in MultiQC report
     def reference_text = [
-        params.skip_mindagap ? "" : "<li>Ricardo Guerreiro, Florian Wuennemann, & pvtodorov. (2023). ViriatoII/MindaGap: v0.0.3 (0.0.3). Zenodo. https://doi.org/10.5281/zenodo.8120559",
+        params.skip_gridline_filling ? "" : "<li>Florian Wuennemann. (2025). flowuenne/gridline-forge. GitHub. https://github.com/flowuenne/gridline-forge</li>",
+        params.skip_duplicatefinder ? "" : "<li>Florian Wuennemann. (2025). flowuenne/gridline-forge. GitHub. https://github.com/flowuenne/gridline-forge</li>",
         params.segmentation_method.split(',').contains('mesmer')   ? "<li>Greenwald, N.F., Miller, G., Moen, E. et al. Whole-cell segmentation of tissue images with human-level performance using large-scale data annotation and deep learning. Nat Biotechnol 40, 555–565 (2022). https://doi.org/10.1038/s41587-021-01094-0</li>" : "",
         params.segmentation_method.split(',').contains('ilastik')  ? "<li>Berg, S., Kutra, D., Kroeger, T. et al. ilastik: interactive machine learning for (bio)image analysis. Nat Methods 16, 1226–1232 (2019). https://doi.org/10.1038/s41592-019-0582-9</li>" : "",
         params.segmentation_method.split(',').contains('stardist')   ? "<li>Schmidt, U., Weigert, M., Broaddus, C., Myers, G. (2018). Cell Detection with Star-Convex Polygons. In: Frangi, A., Schnabel, J., Davatzikos, C., Alberola-López, C., Fichtinger, G. (eds) Medical Image Computing and Computer Assisted Intervention – MICCAI 2018. MICCAI 2018. Lecture Notes in Computer Science(), vol 11071. Springer, Cham. https://doi.org/10.1007/978-3-030-00934-2_30</li>" : "",

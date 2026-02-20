@@ -10,11 +10,10 @@ The directories listed below will be created in the results directory after the 
 
 The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes data using the following steps:
 
-- [Mindagap](#Mindagap) - Fill empty grid lines in a panorama image with neighbor-weighted values.
+- [GridlineForge](#GridlineForge) - Fill empty grid lines in a panorama image and detect duplicate spots near grid boundaries.
 - [CLAHE](#CLAHE) - perform contrast-limited adaptive histogram equalization.
 - [Create stacks](#create_stacks) - If a second image is provided, combine both into one stack as input for segmentation modules.
 - [segmentation](#segmentation) - Segment single cells from provided image using segmentation method of choice (Cellpose, Mesmer, ilastik) and filter them by size.
-- [Mindagap_duplicatefinder](#Mindagap) - Take a spot table and search for duplicates along grid lines.
 - [Spot2cell](#spot2cell) - Assign non-duplicated spots to segmented cells based on segmentation mask and extract cell shape information.
 - [Create AnnData](#anndata) - Creates a spatial AnnData object as described in the [Squidpy tutorial](https://squidpy.readthedocs.io/en/stable/notebooks/tutorials/tutorial_read_spatial.html).
 - [MolkartQC](#molkartqc) - Produce QC metrics specific to this pipeline.
@@ -23,18 +22,18 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
 
 - [Create training subset](#create-training-subset) - creates crops for segmentation training (Cellpose, ilastik).
 
-### Mindagap
+### GridlineForge
 
 <details markdown="1">
 <summary>Output files</summary>
 
-- `mindagap/`
+- `gridline_forge/`
   - `*_gridfilled.tiff`: Gridfilled panorama file(s).
   - `*_markedDups.txt`: Spot table with duplicated spots marked as 'Duplicated'.
 
 </details>
 
-[Mindagap](https://github.com/ViriatoII/MindaGap) fills empty grids of a panorama made from several tiles using the mean of the immediate neighborhood, as well as marking duplicated spots near the grid from the spot table.
+[GridlineForge](https://github.com/flowuenne/gridline-forge) uses FFT-based frequency analysis to detect and remove grid artifacts from panoramic images, and can also identify duplicate gene transcripts at grid line boundaries in the spot table.
 
 ### CLAHE
 

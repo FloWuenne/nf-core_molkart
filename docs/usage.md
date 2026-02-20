@@ -99,11 +99,9 @@ mesmer_image_mpp: 0.138
 mesmer_compartment: "whole-cell"
 ilastik_pixel_project: null
 ilastik_multicut_project: null
-skip_mindagap: false
-mindagap_tilesize: 2144
-mindagap_boxsize: 3
-mindagap_loopnum: 40
-mindagap_edges: false
+skip_gridline_filling: false
+skip_duplicatefinder: false
+gridline_tilesize: 2144
 skip_clahe: false
 clahe_cliplimit: 0.01
 clahe_nbins: 256
@@ -155,11 +153,11 @@ ilastik segmentation requires user-provided Pixel Classification and Multicut pr
 
 ### Skipping processes
 
-By default, both Mindagap and CLAHE are run, however both can be skipped when running the pipeline using the `skip_mindagap` and `skip_clahe` parameters.
+By default, gridline-forge and CLAHE are run, however both can be skipped using the `skip_gridline_filling` and `skip_clahe` parameters.
 
 Local contrast enhancement might not be needed for every dataset and parameters should be chosen carefully depending on the data.
 
-Similarly, if the data does not have the grid pattern characteristic for Molecular Cartography data, Mindagap can be skipped (e.g. for Merscope data) meaning both grid-filling and Duplicatefinder would not be applied to the data.
+If the data does not have the grid pattern characteristic for Molecular Cartography data, gridline filling can be skipped (e.g. for Merscope data) using `--skip_gridline_filling`. Duplicate spot detection (GridlineForge DuplicateFinder) is controlled independently via `--skip_duplicatefinder`.
 
 ### Updating the pipeline
 

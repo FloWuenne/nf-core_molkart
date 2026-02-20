@@ -12,9 +12,7 @@ nextflow_pipeline {
                 input = 'https://raw.githubusercontent.com/nf-core/test-datasets/molkart/test_data/samplesheets/samplesheet_nuclear.csv'
                 outdir = "$outputDir"
                 skip_clahe = true
-                mindagap_tilesize = 90
-                mindagap_boxsize = 7
-                mindagap_loopnum = 100
+                gridline_tilesize = 90
                 segmentation_method = "cellpose,mesmer,stardist"
             }
         }
@@ -47,9 +45,7 @@ nextflow_pipeline {
             params {
                 input = 'https://raw.githubusercontent.com/nf-core/test-datasets/molkart/test_data/samplesheets/samplesheet_membrane.csv'
                 outdir = "$outputDir"
-                mindagap_tilesize = 90
-                mindagap_boxsize = 7
-                mindagap_loopnum = 100
+                gridline_tilesize = 90
                 clahe_pyramid_tile = 368
                 segmentation_method = "cellpose,mesmer"
                 }
@@ -77,7 +73,7 @@ nextflow_pipeline {
         }
     }
 
-    test("Skip mindagap - clahe - cellpose") {
+    test("Skip gridline filling - clahe - cellpose") {
 
         when {
             params {
@@ -85,7 +81,8 @@ nextflow_pipeline {
                 outdir = "$outputDir"
                 clahe_pyramid_tile = 368
                 segmentation_method = "cellpose"
-                skip_mindagap = true
+                skip_gridline_filling = true
+                skip_duplicatefinder = true
                 }
         }
 
@@ -111,14 +108,15 @@ nextflow_pipeline {
         }
     }
 
-    test("Skip mindagap - skip clahe - extended spots - stardist") {
+    test("Skip gridline filling - skip clahe - extended spots - stardist") {
 
         when {
             params {
                 input = 'https://raw.githubusercontent.com/nf-core/test-datasets/molkart/test_data/samplesheets/samplesheet_extended_spots.csv'
                 outdir = "$outputDir"
                 skip_clahe = true
-                skip_mindagap = true
+                skip_gridline_filling = true
+                skip_duplicatefinder = true
                 segmentation_method = "stardist"
             }
         }
@@ -151,9 +149,7 @@ nextflow_pipeline {
             params {
                 input = 'https://raw.githubusercontent.com/nf-core/test-datasets/molkart/test_data/samplesheets/samplesheet_nuclear.csv'
                 outdir = "$outputDir"
-                mindagap_tilesize = 90
-                mindagap_boxsize = 7
-                mindagap_loopnum = 100
+                gridline_tilesize = 90
                 clahe_pyramid_tile = 368
                 create_training_subset = true
                 crop_amount = 2

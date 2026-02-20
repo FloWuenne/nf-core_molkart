@@ -27,10 +27,6 @@
 
   > Greenwald NF, Miller G, Moen E, Kong A, Kagel A, Dougherty T, Fullaway CC, McIntosh BJ, Leow KX, Schwartz MS, Pavelchek C, Cui S, Camplisson I, Bar-Tal O, Singh J, Fong M, Chaudhry G, Abraham Z, Moseley J, Warshawsky S, Soon E, Greenbaum S, Risom T, Hollmann T, Bendall SC, Keren L, Graf W, Angelo M, Van Valen D. Whole-cell segmentation of tissue images with human-level performance using large-scale data annotation and deep learning. Nat Biotechnol. 2022 Apr;40(4):555-565. doi: 10.1038/s41587-021-01094-0. Epub 2021 Nov 18. PMID: 34795433; PMCID: PMC9010346.
 
-- [Mindagap](https://github.com/ViriatoII/MindaGap)
-
-  > Ricardo Guerreiro, Florian Wuennemann, & pvtodorov. (2023). ViriatoII/MindaGap: v0.0.3 (0.0.3). Zenodo. https://doi.org/10.5281/zenodo.8120559
-
 - [MultiQC](https://pubmed.ncbi.nlm.nih.gov/27312411/)
 
   > Ewels P, Magnusson M, Lundin S, Käller M. MultiQC: summarize analysis results for multiple tools and samples in a single report. Bioinformatics. 2016 Oct 1;32(19):3047-8. doi: 10.1093/bioinformatics/btw354. Epub 2016 Jun 16. PubMed PMID: 27312411; PubMed Central PMCID: PMC5039924.

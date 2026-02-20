@@ -132,29 +132,15 @@
             "default": "",
             "fa_icon": "fas fa-adjust",
             "properties": {
-                "gap_filler": {
-                    "type": "string",
-                    "default": "mindagap",
-                    "description": "Tool to use for filling grid lines between tiles. Options: mindagap, gridline_forge.",
-                    "enum": ["mindagap", "gridline_forge"],
-                    "fa_icon": "fas fa-th-large"
-                },
-                "skip_mindagap": {
+                "skip_gridline_filling": {
                     "type": "boolean",
                     "fa_icon": "fas fa-th-large",
                     "description": "Skip grid-line filling if your data does not contain gaps between tiles."
                 },
-                "mindagap_boxsize": {
-                    "type": "integer",
-                    "default": 3,
-                    "description": "Box size used by Mindagap to overcome gaps, a larger number allows to overcome large gaps, but results in less fine details in the filled grid.",
-                    "fa_icon": "fab fa-dropbox"
-                },
-                "mindagap_loopnum": {
-                    "type": "integer",
-                    "default": 40,
-                    "description": "Loop number performed by Mindagap. Lower values are faster, but the result is less good.",
-                    "fa_icon": "fas fa-circle-notch"
+                "skip_duplicatefinder": {
+                    "type": "boolean",
+                    "fa_icon": "fas fa-th-large",
+                    "description": "Skip duplicate spot detection (GridlineForge DuplicateFinder)."
                 },
                 "clahe_cliplimit": {
                     "type": "number",
@@ -185,17 +171,11 @@
                     "description": "Specifies whether contrast-limited adaptive histogram equalization should be skipped.",
                     "fa_icon": "fab fa-buromobelexperte"
                 },
-                "mindagap_tilesize": {
+                "gridline_tilesize": {
                     "type": "integer",
                     "default": 2144,
-                    "description": "Tile size (distance between gridlines) for Mindagap.",
+                    "description": "Tile size (distance between gridlines) used for GridlineForge gap filling and duplicate detection.",
                     "fa_icon": "fas fa-th",
-                    "hidden": true
-                },
-                "mindagap_edges": {
-                    "type": "boolean",
-                    "description": "Should Mindagap blur area around grid for smoother transitions between tiles with different exposures.",
-                    "fa_icon": "fas fa-th-large",
                     "hidden": true
                 },
                 "gridline_forge_kernel_size": {
@@ -207,8 +187,26 @@
                 "gridline_forge_refinement_rounds": {
                     "type": "integer",
                     "default": 40,
-                    "description": "Number of Gaussian blur iterations for GridlineForge. Matches MindaGap loopnum by default. Lower values are faster.",
+                    "description": "Number of Gaussian blur iterations for GridlineForge refinement. Lower values are faster.",
                     "fa_icon": "fas fa-circle-notch"
+                },
+                "gridline_forge_window_size": {
+                    "type": "integer",
+                    "default": 30,
+                    "description": "Search window size (in pixels) around gridlines for duplicate spot detection.",
+                    "fa_icon": "fas fa-expand-arrows-alt"
+                },
+                "gridline_forge_max_freq": {
+                    "type": "integer",
+                    "default": 400,
+                    "description": "Maximum per-gene transcript count used as sanity threshold in duplicate detection.",
+                    "fa_icon": "fas fa-sort-amount-up"
+                },
+                "gridline_forge_min_mode": {
+                    "type": "integer",
+                    "default": 10,
+                    "description": "Minimum number of occurrences required to consider a shift as valid in duplicate detection.",
+                    "fa_icon": "fas fa-sort-amount-down"
                 },
                 "clahe_pyramid_tile": {
                     "type": "integer",
